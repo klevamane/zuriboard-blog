@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render
 
@@ -15,5 +16,16 @@ class SignupView(SuccessMessageMixin, CreateView):
     form_class = SignupForm
     success_url = reverse_lazy("index")
     success_message = 'Registration was successful'
+
+    def form_valid(self, form):
+        # runs if the form is valid
+
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        # import pdb; pdb.set_trace()
+        for k, err in form.errors.items():
+            messages.error(self.request, err[0])
+        return super().form_invalid(form)
 
 
