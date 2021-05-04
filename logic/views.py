@@ -7,7 +7,9 @@ from django.views.generic import ListView
 from logic.models import Blog
 
 
-class IndexView(View, ListView):
+class IndexView(ListView):
     model = Blog
-    template = 'index.html'
+    template_name = 'logic/blog_list.html'
+
+    context_object_name = 'blog_list'
 
