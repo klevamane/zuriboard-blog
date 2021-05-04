@@ -43,6 +43,8 @@ class User(AbstractBaseUser):
         unique=True,
         error_messages={"unique": "A user with this email already exists"},
     )
+    firstname = models.CharField(max_length=30)
+    lastname = models.CharField(max_length=30)
 
     objects = UserManager()
     REQUIRED_FIELDS = ["firstname", "lastname", "password"]
