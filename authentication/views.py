@@ -1,8 +1,8 @@
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-# Create your views here.
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView
 
@@ -17,6 +17,11 @@ class SignupView(SuccessMessageMixin, CreateView):
     form_class = SignupForm
     success_url = reverse_lazy("index")
     success_message = 'Registration was successful'
+
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return HttpResponseRedirect("index")
+        return super(SignupView, self).get(request, *args, **kwargs)
 
     def form_valid(self, form):
         # runs if the form is valid
@@ -40,3 +45,9 @@ class LoginView(SuccessMessageMixin, views.LoginView):
             messages.error(self.request, err[0])
 
         return super().form_invalid(form)
+
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return HttpResponseRedirect("index")
+        return super(LoginView, self).get(request, *args, **kwargs)
+
