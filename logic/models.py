@@ -3,8 +3,7 @@ from django.contrib.auth import get_user_model
 from django.db import models
 
 # Create your models here.
-
-UserModel = get_user_model()
+from authentication.models import User
 
 
 class Timestamp(models.Model):
@@ -24,4 +23,4 @@ class Blog(Timestamp):
 class Comment(Timestamp):
     blog = models.ForeignKey('Blog', on_delete=models.CASCADE, related_name="comments")
     text = models.TextField(max_length=250)
-    user = models.ForeignKey(UserModel, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
