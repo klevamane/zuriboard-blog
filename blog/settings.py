@@ -146,3 +146,6 @@ MEDIA_URL = "/media/"
 # therefore we need to create a folder called media in the root
 # of this project, on the same level as manage.py
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+AUTH_USER_MODEL = 'authentication.User'
+LOGIN_REDIRECT_URL = "index"
