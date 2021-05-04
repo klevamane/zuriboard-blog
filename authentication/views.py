@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 from django.urls import reverse_lazy
+from django.views import View
 from django.views.generic import CreateView, DetailView
 
 from authentication.forms import SignupForm, LoginForm
@@ -50,4 +51,3 @@ class LoginView(SuccessMessageMixin, views.LoginView):
         if request.user.is_authenticated:
             return HttpResponseRedirect("index")
         return super(LoginView, self).get(request, *args, **kwargs)
-
