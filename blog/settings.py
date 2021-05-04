@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-p!76#^d)bi(a_kwz3=!uh$p4++u6@7@nqe92p-81@=m%=9(f^v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://zuriboard-blog.herokuapp.com/"]
 
 
 # Application definition
