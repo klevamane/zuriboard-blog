@@ -81,16 +81,22 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": os.environ["DB_NAME"],
+#         "HOST": os.environ["DB_HOST"],
+#         "PASSWORD": os.environ["DB_PASSWORD"],
+#         "USER": os.environ["DB_USER"],
+#     }
+# }
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ["DB_NAME"],
-        "HOST": os.environ["DB_HOST"],
-        "PASSWORD": os.environ["DB_PASSWORD"],
-        "USER": os.environ["DB_USER"],
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'blog/blogdb',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
