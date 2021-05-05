@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
-    <title>Product example for Bootstrap</title>
+    <title>Blog</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/product/">
 
@@ -37,7 +37,7 @@
                 <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
             </svg>
         </a>
-        <a class="py-2 d-none d-md-inline-block" href="#">Product</a>
+        <a class="py-2 d-none d-md-inline-block" href={% url "index" %}>Home</a>
 
 
         {% if request.user.is_authenticated %}
